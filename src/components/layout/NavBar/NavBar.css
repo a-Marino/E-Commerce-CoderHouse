@@ -1,0 +1,13 @@
+.brand {
+  text-decoration: none;
+  color: #000;
+  transition: 0.25s ease-in-out;
+}
+
+.brand:hover {
+  font-weight: 600;
+}
+
+.logo {
+  width: 80px;
+}
