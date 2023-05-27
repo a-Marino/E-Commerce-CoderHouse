@@ -7,10 +7,10 @@ export const NavBar = () => {
 
   return (
     <>
-      <nav className="flex items-center justify-between py-4 pl-8 pr-16">
+      <nav className="flex items-center justify-between pl-8 pr-16 fixed w-full border-b-2 h-20 top-0 bg-white/30 backdrop-blur-sm">
         {/* Logo */}
         <img
-          src="https://res.cloudinary.com/dv8nczwtj/image/upload/v1684851805/Logo_rwyfyh.png"
+          src="https://res.cloudinary.com/dv8nczwtj/image/upload/v1684896617/Logo_jivlnb.png"
           alt="Logo"
           className="logo"
         />
@@ -26,7 +26,7 @@ export const NavBar = () => {
             Xiaomi
           </a>
           <a href="#" className="brand">
-            Motorola
+            Google
           </a>
         </div>
         {/* BTN Nav Mobil */}
@@ -42,7 +42,10 @@ export const NavBar = () => {
       </nav>
       {/* Nav Mobil */}
       {showNav && (
-        <div className="flex flex-col justify-center items-center space-y-4 pb-2 border-b-2 border-black md:hidden">
+        <div
+          className="flex fixed w-full flex-col justify-center items-center space-y-4 pb-2 border-b-2 border-black md:hidden bg-white/30 top-20 pt-4 backdrop-blur-sm"
+          style={{ animation: "fadeIn .5s ease" }}
+        >
           <a href="#" className="brand">
             Apple
           </a>
@@ -53,7 +56,7 @@ export const NavBar = () => {
             Xiaomi
           </a>
           <a href="#" className="brand">
-            Motorola
+            Google
           </a>
         </div>
       )}
