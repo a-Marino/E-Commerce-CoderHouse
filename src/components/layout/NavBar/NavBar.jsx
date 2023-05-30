@@ -1,5 +1,5 @@
 import "./NavBar.css";
-import { CartWidget } from "../../common/CartWidget";
+import { CartWidget } from "../../common/CartWidget/CartWidget";
 import { useState } from "react";
 
 export const NavBar = () => {
@@ -7,7 +7,7 @@ export const NavBar = () => {
 
   return (
     <>
-      <nav className="flex items-center justify-between pl-8 pr-16 fixed w-full border-b-2 h-20 top-0 bg-white/30 backdrop-blur-sm">
+      <nav className="flex items-center justify-between pl-8 pr-16 fixed w-full border h-20 top-0 bg-white/30 backdrop-blur-sm z-10">
         {/* Logo */}
         <img
           src="https://res.cloudinary.com/dv8nczwtj/image/upload/v1684896617/Logo_jivlnb.png"
