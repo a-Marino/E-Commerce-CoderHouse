@@ -1,12 +1,14 @@
-import { ItemListContainer } from "./components/pages/itemListContainer/ItemListContainer";
+import { ItemListContainerContainer } from "./components/pages/ItemListContainer/ItemListContainerContainer";
 import { NavBar } from "./components/layout/NavBar/NavBar";
-import { Footer } from "./components/layout/Footer";
+import { Footer } from "./components/layout/Footer/Footer";
+import { ProductDetailsContainer } from "./components/pages/ProductDetails/ProductDetailsContainer";
 
 function App() {
   return (
     <>
       <NavBar />
-      <ItemListContainer greeting="All Products" />
+      {/* <ItemListContainerContainer /> */}
+      <ProductDetailsContainer />
       <Footer />
     </>
   );

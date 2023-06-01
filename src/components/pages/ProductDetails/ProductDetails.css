@@ -1,0 +1,35 @@
+.button {
+  width: 100px;
+  height: 40px;
+  position: relative;
+}
+
+.button label {
+  padding: 10px 20px;
+  line-height: 1.8em;
+  cursor: pointer;
+  border: 2px solid black;
+  font-weight: 600;
+}
+
+.button input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  cursor: pointer;
+}
+
+.button input[type="radio"] {
+  opacity: 0;
+}
+
+.button input[type="radio"]:checked + label {
+  border: 2px solid #0071e3;
+}
+
+.button input[type="radio"]:disabled + label {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

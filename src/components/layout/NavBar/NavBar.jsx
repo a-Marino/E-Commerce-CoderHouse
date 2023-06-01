@@ -5,6 +5,10 @@ import { useState } from "react";
 export const NavBar = () => {
   const [showNav, setShowNav] = useState(false);
 
+  const handleNavClick = () => {
+    setShowNav(!showNav);
+  };
+
   return (
     <>
       <nav className="flex items-center justify-between pl-8 pr-16 fixed w-full border h-20 top-0 bg-white/30 backdrop-blur-sm z-10">
@@ -30,7 +34,7 @@ export const NavBar = () => {
           </a>
         </div>
         {/* BTN Nav Mobil */}
-        <button className="md:hidden" onClick={() => setShowNav(!showNav)}>
+        <button className="md:hidden" onClick={handleNavClick}>
           <img
             src="https://res.cloudinary.com/dv8nczwtj/image/upload/v1684859901/menu_wh8ccz.png"
             alt="Menu"
@@ -44,7 +48,7 @@ export const NavBar = () => {
       {showNav && (
         <div
           className="flex fixed w-full flex-col justify-center items-center space-y-4 pb-2 border-b-2 border-black md:hidden bg-white/30 top-20 pt-4 backdrop-blur-sm"
-          style={{ animation: "fadeIn .5s ease" }}
+          style={{ animation: "fadeIn .5s linear" }}
         >
           <a href="#" className="brand">
             Apple

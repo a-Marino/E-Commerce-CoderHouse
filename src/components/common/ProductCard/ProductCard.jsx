@@ -1,20 +1,22 @@
 import "./ProductCard.css";
 
-export const ProductCard = ({ item }) => {
+export const ProductCard = ({ product }) => {
   return (
-    <div key={item.id} className="card cursor-pointer ">
+    <div key={product.id} className="card cursor-pointer ">
       <img
-        src={item.img}
-        alt={item.title}
+        src={product.img}
+        alt={product.title}
         className="h-72 w-auto p-2 flex m-auto"
       />
       <div className="productInfo flex flex-row overflow-hidden">
         <div className="flex flex-col">
-          <span className="font-bold whitespace-nowrap">{item.title}</span>
-          <span>{item.space}</span>
-          <span className="text-sm">{item.screen}</span>
+          <span className="font-bold whitespace-nowrap">{product.title}</span>
+          <span>{product.space}</span>
+          <span className="text-sm">{product.screen}</span>
         </div>
-        <span className="ml-auto mt-auto font-semibold">{item.price}USD</span>
+        <span className="ml-auto mt-auto font-semibold">
+          {product.price}USD
+        </span>
       </div>
     </div>
   );
