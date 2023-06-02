@@ -1,12 +1,11 @@
 .card {
   border: 1px solid black;
   width: 16rem;
-  height: 24rem;
+  height: auto;
 }
 
 .productInfo {
   border-top: 1px solid black;
-  padding: 15px 10px;
   width: 100%;
 }
 

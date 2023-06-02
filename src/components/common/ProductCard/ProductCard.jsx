@@ -8,15 +8,18 @@ export const ProductCard = ({ product }) => {
         alt={product.title}
         className="h-72 w-auto p-2 flex m-auto"
       />
-      <div className="productInfo flex flex-row overflow-hidden">
+      <div className="productInfo overflow-hidden py-1 px-3">
         <div className="flex flex-col">
-          <span className="font-bold whitespace-nowrap">{product.title}</span>
-          <span>{product.space}</span>
-          <span className="text-sm">{product.screen}</span>
+          <span className="font-bold whitespace-nowrap text-xl">
+            {product.model}
+          </span>
+          <span className="space-x-2">{product.spec[0].size}*</span>
+          <span>{product.screen}</span>
+          <span className="font-semibold self-end">
+            <span className="text-sm font-normal mr-2">from</span>
+            {product.spec[0].price}USD
+          </span>
         </div>
-        <span className="ml-auto mt-auto font-semibold">
-          {product.price}USD
-        </span>
       </div>
     </div>
   );

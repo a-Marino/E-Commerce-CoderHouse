@@ -42,7 +42,7 @@ export const NavBar = () => {
           />
         </button>
         {/* Cart */}
-        <CartWidget />
+        <CartWidget className="flex flex-grow basis-0 justify-end" />
       </nav>
       {/* Nav Mobil */}
       {showNav && (

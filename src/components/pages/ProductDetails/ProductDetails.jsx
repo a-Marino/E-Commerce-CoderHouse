@@ -1,21 +1,26 @@
+import { useState } from "react";
 import "./ProductDetails.css";
 
 export const ProductDetails = ({ product, stock }) => {
-  console.log(stock);
+  const [price, setPrice] = useState(product.spec[0].price);
+
+  const onSpecChange = (e) => {
+    setPrice(e.target.value);
+  };
 
   return (
     <div className="min-h-full min-w-screen mt-32 mb-20 p-10 flex md:flex-row md:justify-around md:space-y-0 space-y-10 flex-col">
       {/* LEFT */}
       <div>
-        <img src={product.img} alt={product.title} className="w-72" />
+        <img src={product.img} alt={product.model} className="w-72" />
       </div>
       {/* RIGHT */}
       <div className="flex flex-col md:w-96">
         {/* model & price */}
         <div className="border-b border-black pb-3">
-          <h1 className="text-4xl font-extrabold mb-1">{product.title}</h1>
+          <h1 className="text-4xl font-extrabold mb-1">{product.model}</h1>
           <div className="flex flex-row">
-            <span className="text-2xl font-semibold">{product.price} USD</span>
+            <span className="text-2xl font-semibold">{price} USD</span>
             <div className="flex self-end items-center space-x-2 ml-auto pr-3">
               {product.colorCode != undefined && (
                 <div
@@ -33,17 +38,21 @@ export const ProductDetails = ({ product, stock }) => {
         </div>
         {/* memory */}
         <div className="mt-5 pb-2 border-b border-black px-5 flex items-center justify-center space-x-4">
-          {product.memory.map((memory, key) => {
+          {product.spec.map((spec) => {
             return (
-              <div className="button" key={key}>
+              <div className="button" key={spec.id}>
                 <input
                   type="radio"
-                  id={memory.size}
+                  id={spec.id}
+                  value={spec.price}
                   name="productMemory"
-                  disabled={!memory.stock}
+                  disabled={!spec.stock}
+                  onChange={onSpecChange}
+                  required
+                  aria-selected="false"
                 />
-                <label className="btn btn-default" htmlFor={memory.size}>
-                  {memory.size}
+                <label className="btn btn-default" htmlFor={spec.size}>
+                  {spec.size}
                 </label>
               </div>
             );
@@ -52,9 +61,9 @@ export const ProductDetails = ({ product, stock }) => {
         {/* Buy button */}
         <button
           className="mt-5 w-full h-10 bg-blue-600 rounded-full text-white enabled:hover:bg-blue-500 disabled:opacity-60 disabled:cursor-not-allowed"
-          disabled={stock <= 0}
+          disabled={!stock}
         >
-          buy
+          Add to cart
         </button>
       </div>
     </div>

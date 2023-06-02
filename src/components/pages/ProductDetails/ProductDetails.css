@@ -32,4 +32,5 @@
 .button input[type="radio"]:disabled + label {
   opacity: 0.4;
   cursor: not-allowed;
+  border: 2px solid black;
 }
