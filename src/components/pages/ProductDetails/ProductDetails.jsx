@@ -1,6 +1,8 @@
 import "./ProductDetails.css";
 
-export const ProductDetails = ({ product }) => {
+export const ProductDetails = ({ product, stock }) => {
+  console.log(stock);
+
   return (
     <div className="min-h-full min-w-screen mt-32 mb-20 p-10 flex md:flex-row md:justify-around md:space-y-0 space-y-10 flex-col">
       {/* LEFT */}
@@ -9,7 +11,7 @@ export const ProductDetails = ({ product }) => {
       </div>
       {/* RIGHT */}
       <div className="flex flex-col md:w-96">
-        {/* moden & price */}
+        {/* model & price */}
         <div className="border-b border-black pb-3">
           <h1 className="text-4xl font-extrabold mb-1">{product.title}</h1>
           <div className="flex flex-row">
@@ -30,7 +32,7 @@ export const ProductDetails = ({ product }) => {
           <p>{product.description}</p>
         </div>
         {/* memory */}
-        <div className="mt-5 pb-2 border-b border-black px-5 flex">
+        <div className="mt-5 pb-2 border-b border-black px-5 flex items-center justify-center space-x-4">
           {product.memory.map((memory, key) => {
             return (
               <div className="button" key={key}>
@@ -47,10 +49,10 @@ export const ProductDetails = ({ product }) => {
             );
           })}
         </div>
-        {/* BUY */}
+        {/* Buy button */}
         <button
           className="mt-5 w-full h-10 bg-blue-600 rounded-full text-white enabled:hover:bg-blue-500 disabled:opacity-60 disabled:cursor-not-allowed"
-          disabled={product.stock <= 0}
+          disabled={stock <= 0}
         >
           buy
         </button>
