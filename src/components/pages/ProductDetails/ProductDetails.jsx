@@ -1,11 +1,15 @@
 import { useState } from "react";
 import "./ProductDetails.css";
+import { ItemCount } from "../../common/ItemCount/ItemCount";
 
-export const ProductDetails = ({ product, stock }) => {
+export const ProductDetails = ({ product, onAdd }) => {
+  //  States para actualizar el precio y el stock cuando se cambia la version de memoria
   const [price, setPrice] = useState(product.spec[0].price);
+  const [specStock, setSpecStock] = useState();
 
   const onSpecChange = (e) => {
     setPrice(e.target.value);
+    setSpecStock(e.target.getAttribute("data-stock"));
   };
 
   return (
@@ -48,8 +52,9 @@ export const ProductDetails = ({ product, stock }) => {
                   name="productMemory"
                   disabled={!spec.stock}
                   onChange={onSpecChange}
-                  required
+                  data-stock={spec.stock}
                   aria-selected="false"
+                  required
                 />
                 <label className="btn btn-default" htmlFor={spec.size}>
                   {spec.size}
@@ -58,13 +63,8 @@ export const ProductDetails = ({ product, stock }) => {
             );
           })}
         </div>
-        {/* Buy button */}
-        <button
-          className="mt-5 w-full h-10 bg-blue-600 rounded-full text-white enabled:hover:bg-blue-500 disabled:opacity-60 disabled:cursor-not-allowed"
-          disabled={!stock}
-        >
-          Add to cart
-        </button>
+        {/* add to cart btn */}
+        <ItemCount stock={specStock} key={specStock} onAdd={onAdd} />
       </div>
     </div>
   );
