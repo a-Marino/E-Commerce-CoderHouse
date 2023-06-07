@@ -7,10 +7,12 @@ export const ProductDetailsContainer = () => {
 
   let id = 2;
 
-  const onAdd = (cantidad) => {
+  const onAdd = (cantidad, specSelectedId) => {
     let data = {
       ...productSelected,
       quantity: cantidad,
+      specSelectedId: specSelectedId,
+      //  Nose si es necesario pero le pase tambien el ID del spec seleccionado para en un futuro descontar el stock
     };
     console.log(data);
   };

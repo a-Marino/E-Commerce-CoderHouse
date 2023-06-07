@@ -4,12 +4,15 @@ import { ItemCount } from "../../common/ItemCount/ItemCount";
 
 export const ProductDetails = ({ product, onAdd }) => {
   //  States para actualizar el precio y el stock cuando se cambia la version de memoria
+  // Nose si es necesario pero tambien le paso el ID del spec seleccionado para despues utilizarlo para restar el stock
   const [price, setPrice] = useState(product.spec[0].price);
   const [specStock, setSpecStock] = useState();
+  const [specSelectedId, setSpecSelectedId] = useState();
 
   const onSpecChange = (e) => {
-    setPrice(e.target.value);
+    setPrice(e.target.getAttribute("data-price"));
     setSpecStock(e.target.getAttribute("data-stock"));
+    setSpecSelectedId(e.target.id);
   };
 
   return (
@@ -48,11 +51,12 @@ export const ProductDetails = ({ product, onAdd }) => {
                 <input
                   type="radio"
                   id={spec.id}
-                  value={spec.price}
+                  value={spec.size}
                   name="productMemory"
                   disabled={!spec.stock}
                   onChange={onSpecChange}
                   data-stock={spec.stock}
+                  data-price={spec.price}
                   aria-selected="false"
                   required
                 />
@@ -64,7 +68,12 @@ export const ProductDetails = ({ product, onAdd }) => {
           })}
         </div>
         {/* add to cart btn */}
-        <ItemCount stock={specStock} key={specStock} onAdd={onAdd} />
+        <ItemCount
+          stock={specStock}
+          key={specStock}
+          specSelectedId={specSelectedId}
+          onAdd={onAdd}
+        />
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const ItemCount = ({ stock, onAdd }) => {
+export const ItemCount = ({ stock, specSelectedId, onAdd }) => {
   const [count, setCount] = useState(1);
 
   const decrement = () => {
@@ -38,7 +38,7 @@ export const ItemCount = ({ stock, onAdd }) => {
       <button
         className="w-full h-10 bg-blue-600 rounded-full text-white enabled:hover:bg-blue-500 disabled:opacity-60 disabled:cursor-not-allowed"
         disabled={!stock}
-        onClick={() => onAdd(count)}
+        onClick={() => onAdd(count, specSelectedId)}
       >
         Add to cart
       </button>
