@@ -29,7 +29,6 @@ export const ProductsMock = [
     model: "iPhone 13 Mini",
     description:
       "The iPhone 13 Mini is the successor to Apple's first super mini flagship in recent years, the iPhone 12 Mini. It retains the same 5.4'' screen size and the one-handed use friendly form factor, while at the same time bringing a faster Apple A15 Bionic processor. On the camera front, the 13 Mini keeps a wide and an ultra-wide setup, and it does not have a dedicated telephoto zoom camera.",
-    price: 650,
     color: "Pink",
     colorCode: "#FEE2DE",
     img: "https://res.cloudinary.com/dv8nczwtj/image/upload/v1684897557/Apple%20Phones/compare_iphone13_mini_pink__dwss1czwg66a_large_2x_j21lx7.jpg",
@@ -88,7 +87,6 @@ export const ProductsMock = [
       "The Samsung Galaxy S22 specs are top-notch including a Snapdragon 8 Gen 1 chipset, 8GB RAM coupled with 128/256GB storage, and a 3700mAh battery with 25W charging speed. The phone sports a 6.1-inch Dynamic AMOLED display with an adaptive 120Hz refresh rate. In the camera department there is a Triple-sensor setup is present.",
     color: "White",
     colorCode: "#F8F8F8",
-
     img: "https://res.cloudinary.com/dv8nczwtj/image/upload/v1684898444/Samsung/ar-galaxy-s22-s901-sm-s901ezwlaro-thumb-530921607_citlb0.png",
     category: "Samsung",
     screen: "6'1",
@@ -114,7 +112,6 @@ export const ProductsMock = [
       "The Samsung Galaxy Z Fold 4 is is the successor of the Galaxy Z Fold 3 and it comes with 6.2-inch outer display and big 7.6-inch Dynamic AMOLED display when unfolded. Specs also include Qualcomm Snapdragon 8+ Gen 1 processor, 4400mAh battery and Triple camera setup on the back with 50MP main sensor.",
     color: "Green",
     colorCode: "#3C5652",
-
     img: "https://res.cloudinary.com/dv8nczwtj/image/upload/v1684898546/Samsung/ar-galaxy-z-fold4-f936-429925-sm-f936bzamaro-thumb-533083370_rcbrbi.png",
     category: "Samsung",
     screen: "7'6",
@@ -240,7 +237,6 @@ export const ProductsMock = [
       "The Samsung Galaxy S23 Ultra is the headliner of the S23 series. Specifications are top-notch including 6.8-inch Dynamic AMOLED display with 120Hz refresh rate, Snapdragon 8 Gen 2 processor, 5000mAh battery, up to 12gigs of RAM, and 1TB of storage. In the camera department, a quad-camera setup is presented with two telephoto sensors.",
     color: "Green",
     colorCode: "#3C5652",
-    price: 900,
     img: "https://res.cloudinary.com/dv8nczwtj/image/upload/v1685463037/Samsung/galaxy-s23-ultra-compare-green_nlynuc.jpg",
     category: "Samsung",
     screen: "6'8",

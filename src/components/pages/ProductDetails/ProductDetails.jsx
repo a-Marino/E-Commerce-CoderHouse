@@ -1,20 +1,14 @@
-import { useState } from "react";
 import "./ProductDetails.css";
 import { ItemCount } from "../../common/ItemCount/ItemCount";
 
-export const ProductDetails = ({ product, onAdd }) => {
-  //  States para actualizar el precio y el stock cuando se cambia la version de memoria
-  // Nose si es necesario pero tambien le paso el ID del spec seleccionado para despues utilizarlo para restar el stock
-  const [price, setPrice] = useState(product.spec[0].price);
-  const [specStock, setSpecStock] = useState();
-  const [specSelectedId, setSpecSelectedId] = useState();
-
-  const onSpecChange = (e) => {
-    setPrice(e.target.getAttribute("data-price"));
-    setSpecStock(e.target.getAttribute("data-stock"));
-    setSpecSelectedId(e.target.id);
-  };
-
+export const ProductDetails = ({
+  product,
+  onAdd,
+  price,
+  specStock,
+  specSelectedId,
+  onSpecChange,
+}) => {
   return (
     <div className="min-h-full min-w-screen mt-32 mb-20 p-10 flex md:flex-row md:justify-around md:space-y-0 space-y-10 flex-col">
       {/* LEFT */}
@@ -27,7 +21,9 @@ export const ProductDetails = ({ product, onAdd }) => {
         <div className="border-b border-black pb-3">
           <h1 className="text-4xl font-extrabold mb-1">{product.model}</h1>
           <div className="flex flex-row">
-            <span className="text-2xl font-semibold">{price} USD</span>
+            <span className="text-2xl font-semibold">
+              {price == undefined ? product.spec[0].price : price} USD
+            </span>
             <div className="flex self-end items-center space-x-2 ml-auto pr-3">
               {product.colorCode != undefined && (
                 <div
