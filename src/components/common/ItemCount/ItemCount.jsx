@@ -38,7 +38,7 @@ export const ItemCount = ({ stock, onAdd }) => {
       <button
         className="w-full h-10 bg-blue-600 rounded-full text-white enabled:hover:bg-blue-500 disabled:opacity-60 disabled:cursor-not-allowed"
         disabled={!stock}
-        onClick={onAdd}
+        onClick={() => onAdd(count)}
       >
         Add to cart
       </button>

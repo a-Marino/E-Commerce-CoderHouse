@@ -7,10 +7,10 @@ export const ProductDetailsContainer = () => {
 
   let id = 2;
 
-  const onAdd = (quantity) => {
+  const onAdd = (cantidad) => {
     let data = {
       ...productSelected,
-      quantity: quantity,
+      quantity: cantidad,
     };
     console.log(data);
   };
