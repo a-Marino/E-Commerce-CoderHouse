@@ -1,6 +1,7 @@
 import { ProductDetails } from "./ProductDetails";
-import { ProductsMock } from "../../../productsMock";
+import { ProductsMock } from "../../../ProductsMock";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 export const ProductDetailsContainer = () => {
   const [productSelected, setProductSelected] = useState({});
@@ -11,7 +12,7 @@ export const ProductDetailsContainer = () => {
   const [specStock, setSpecStock] = useState();
   const [specSelectedId, setSpecSelectedId] = useState();
 
-  let id = 2;
+  const { id } = useParams();
 
   // funcion para agregar items al carrito
 
@@ -33,8 +34,9 @@ export const ProductDetailsContainer = () => {
   };
 
   useEffect(() => {
-    let productFind = ProductsMock.find((product) => product.id === id);
-
+    let productFind = ProductsMock.find(
+      (product) => product.id === parseInt(id)
+    );
     const fetchProducts = new Promise((res) => {
       res(productFind);
     });

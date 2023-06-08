@@ -7,7 +7,7 @@ export const ProductsMock = [
     color: "Starlight",
     colorCode: "#F9F4F0",
     img: "https://res.cloudinary.com/dv8nczwtj/image/upload/v1684897580/Apple%20Phones/compare_iphone13_starlight__esudx06azmeu_large_2x_xmif17.jpg",
-    category: "Apple",
+    category: "apple",
     screen: "6'1",
     spec: [
       {
@@ -32,7 +32,7 @@ export const ProductsMock = [
     color: "Pink",
     colorCode: "#FEE2DE",
     img: "https://res.cloudinary.com/dv8nczwtj/image/upload/v1684897557/Apple%20Phones/compare_iphone13_mini_pink__dwss1czwg66a_large_2x_j21lx7.jpg",
-    category: "Apple",
+    category: "apple",
     screen: "5'4",
     spec: [
       {
@@ -63,7 +63,7 @@ export const ProductsMock = [
     color: "Gold",
     colorCode: "#FDDFC7",
     img: "https://res.cloudinary.com/dv8nczwtj/image/upload/v1684897928/Apple%20Phones/compare_iphoneXS_gold__ecmnn7k3ajee_large_2x_xylagd.jpg",
-    category: "Apple",
+    category: "apple",
     screen: "6'1",
     spec: [
       {
@@ -88,7 +88,7 @@ export const ProductsMock = [
     color: "White",
     colorCode: "#F8F8F8",
     img: "https://res.cloudinary.com/dv8nczwtj/image/upload/v1684898444/Samsung/ar-galaxy-s22-s901-sm-s901ezwlaro-thumb-530921607_citlb0.png",
-    category: "Samsung",
+    category: "samsung",
     screen: "6'1",
     spec: [
       {
@@ -113,7 +113,7 @@ export const ProductsMock = [
     color: "Green",
     colorCode: "#3C5652",
     img: "https://res.cloudinary.com/dv8nczwtj/image/upload/v1684898546/Samsung/ar-galaxy-z-fold4-f936-429925-sm-f936bzamaro-thumb-533083370_rcbrbi.png",
-    category: "Samsung",
+    category: "samsung",
     screen: "7'6",
     spec: [
       {
@@ -138,7 +138,7 @@ export const ProductsMock = [
     color: "Bora Purple",
     colorCode: "#9C2BD3",
     img: "https://res.cloudinary.com/dv8nczwtj/image/upload/v1684898513/Samsung/ar-galaxy-z-flip4-f721-sm-f721blvkaro-thumb-534303234_y27cr9.png",
-    category: "Samsung",
+    category: "samsung",
     screen: "6'7",
     spec: [
       {
@@ -163,7 +163,7 @@ export const ProductsMock = [
     color: "Coral",
     colorCode: "#F08B75",
     img: "https://res.cloudinary.com/dv8nczwtj/image/upload/v1684898644/Google/Pixel7a-600x600.webp",
-    category: "Google",
+    category: "google",
     screen: "6'1",
     spec: [
       {
@@ -188,7 +188,7 @@ export const ProductsMock = [
     color: "Lemongrass",
     colorCode: "#F5FCE4",
     img: "https://res.cloudinary.com/dv8nczwtj/image/upload/v1684899083/Google/Pixel7-600x600.webp",
-    category: "Google",
+    category: "google",
     screen: "6'3",
     spec: [
       {
@@ -213,7 +213,7 @@ export const ProductsMock = [
     color: "Cloudy White",
     colorCode: "#E1D6CC",
     img: "https://res.cloudinary.com/dv8nczwtj/image/upload/v1684899206/Google/Pixel6Pro-600x600.webp",
-    category: "Google",
+    category: "google",
     screen: "6'7",
     spec: [
       {
@@ -238,7 +238,7 @@ export const ProductsMock = [
     color: "Green",
     colorCode: "#3C5652",
     img: "https://res.cloudinary.com/dv8nczwtj/image/upload/v1685463037/Samsung/galaxy-s23-ultra-compare-green_nlynuc.jpg",
-    category: "Samsung",
+    category: "samsung",
     screen: "6'8",
     spec: [
       {
