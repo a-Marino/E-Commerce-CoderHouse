@@ -10,7 +10,7 @@ export const ProductDetails = ({
   onSpecChange,
 }) => {
   return (
-    <div className="min-h-full min-w-screen mt-32 mb-20 p-10 flex md:flex-row md:justify-around md:space-y-0 space-y-10 flex-col">
+    <div className="min-h-full min-w-screen mt-28 mb-20 p-10 flex md:flex-row md:justify-around md:space-y-0 space-y-10 flex-col">
       {/* LEFT */}
       <div>
         <img src={product.img} alt={product.model} className="w-72" />

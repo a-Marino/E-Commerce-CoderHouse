@@ -27,5 +27,5 @@ export const ItemListContainerContainer = () => {
       });
   }, [categoryName]);
 
-  return <ItemListContainer products={products} />;
+  return <ItemListContainer products={products} categoryName={categoryName} />;
 };
