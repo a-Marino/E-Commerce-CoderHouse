@@ -1,10 +1,20 @@
 import { Link } from "react-router-dom";
 import "./ProductCard.css";
+import { motion } from "framer-motion";
 
 export const ProductCard = ({ product }) => {
   return (
     <Link to={`/product/${product.id}`}>
-      <div key={product.id} className="card cursor-pointer ">
+      <motion.div
+        animate={{ opacity: 1, scale: 1 }}
+        initial={{ opacity: 0, scale: 0 }}
+        exit={{ opacity: 0, scale: 0 }}
+        transition={{ duration: 0.25 }}
+        whileHover={{ scale: 1.02 }}
+        layout
+        key={product.id}
+        className="card cursor-pointer "
+      >
         <img
           src={product.img}
           alt={product.title}
@@ -23,7 +33,7 @@ export const ProductCard = ({ product }) => {
             </span>
           </div>
         </div>
-      </div>
+      </motion.div>
     </Link>
   );
 };

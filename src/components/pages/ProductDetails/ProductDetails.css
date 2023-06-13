@@ -27,6 +27,7 @@
 
 .button input[type="radio"]:checked + label {
   border: 2px solid #0071e3;
+  transition: 0.2s;
 }
 
 .button input[type="radio"]:disabled + label {

@@ -1,5 +1,6 @@
 import "./ProductDetails.css";
 import { ItemCount } from "../../common/ItemCount/ItemCount";
+import { motion } from "framer-motion";
 
 export const ProductDetails = ({
   product,
@@ -26,10 +27,12 @@ export const ProductDetails = ({
             </span>
             <div className="flex self-end items-center space-x-2 ml-auto pr-3">
               {product.colorCode != undefined && (
-                <div
+                <motion.div
+                  whileHover={{ scale: 1.2 }}
+                  transition={{ type: "spring", stiffness: 100, duration: 0.5 }}
                   className="w-5 h-5 border border-black rounded-full"
                   style={{ backgroundColor: product.colorCode }}
-                ></div>
+                ></motion.div>
               )}
               <span className=" text-lg">{product.color}</span>
             </div>

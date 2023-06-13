@@ -8,6 +8,10 @@
   font-weight: 600;
 }
 
+.brand.active {
+  font-weight: 600;
+}
+
 .logo {
   width: 80px;
 }

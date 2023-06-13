@@ -6,7 +6,7 @@ export const Footer = () => {
           © 2023{" "}
           <a
             href="https://portfolio-andres-marino.web.app/"
-            className="hover:font-bold"
+            className="hover:font-bold duration-300"
             target="_blank"
             rel="noreferrer"
           >
@@ -19,24 +19,24 @@ export const Footer = () => {
             <a
               href="https://github.com/a-Marino/E-Commerce-CoderHouse"
               target="_blank"
-              className="mr-4 hover:font-bold md:mr-6"
+              className="mr-4 hover:font-bold md:mr-6 duration-300"
               rel="noreferrer"
             >
               About
             </a>
           </li>
           <li>
-            <a href="#" className="mr-4 hover:font-bold md:mr-6">
+            <a href="#" className="mr-4 hover:font-bold md:mr-6 duration-300">
               Privacy Policy
             </a>
           </li>
           <li>
-            <a href="#" className="mr-4 hover:font-bold md:mr-6">
+            <a href="#" className="mr-4 hover:font-bold md:mr-6 duration-300">
               Licensing
             </a>
           </li>
           <li>
-            <a href="#" className="hover:font-bold">
+            <a href="#" className="hover:font-bold duration-300">
               Contact
             </a>
           </li>
