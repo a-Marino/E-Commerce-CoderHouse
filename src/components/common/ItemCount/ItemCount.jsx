@@ -20,7 +20,7 @@ export const ItemCount = ({ stock, onAdd }) => {
       <div className="flex space-x-5">
         <button
           onClick={decrement}
-          className="bg-blue-600 px-4 rounded-full enabled:hover:bg-blue-500 disabled:opacity-60 disabled:cursor-not-allowed"
+          className="bg-blue-600 px-4 rounded-lg enabled:hover:bg-blue-500 disabled:opacity-60 disabled:cursor-not-allowed"
           disabled={!stock}
         >
           -
@@ -28,7 +28,7 @@ export const ItemCount = ({ stock, onAdd }) => {
         <span>{count}</span>
         <button
           onClick={increment}
-          className="bg-blue-600 px-4 rounded-full enabled:hover:bg-blue-500 disabled:opacity-60 disabled:cursor-not-allowed"
+          className="bg-blue-600 px-4 rounded-lg enabled:hover:bg-blue-500 disabled:opacity-60 disabled:cursor-not-allowed"
           disabled={!stock}
         >
           +
@@ -36,7 +36,7 @@ export const ItemCount = ({ stock, onAdd }) => {
       </div>
       {stock && <span className="text-sm">Stock: {stock}</span>}
       <button
-        className="w-full h-10 bg-blue-600 rounded-full text-white enabled:hover:bg-blue-500 disabled:opacity-60 disabled:cursor-not-allowed"
+        className="w-full h-10 bg-blue-600 rounded-lg text-white enabled:hover:bg-blue-500 disabled:opacity-60 disabled:cursor-not-allowed"
         disabled={!stock}
         onClick={() => onAdd(count)}
       >

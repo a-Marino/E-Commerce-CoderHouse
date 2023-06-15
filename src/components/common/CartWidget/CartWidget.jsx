@@ -1,15 +1,17 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import "./CartWidget.css";
+import { CartContext } from "../../../context/CartContext";
 
 export const CartWidget = () => {
-  const cartItems = 1;
+  const { cart } = useContext(CartContext);
 
   return (
     <Link to="/cart" className="cart">
       <span className="text-lg font-semibold">Cart</span>
       <AnimatePresence>
-        {cartItems > 0 && (
+        {cart.length > 0 && (
           <motion.p
             animate={{ opacity: 1, scale: 1 }}
             initial={{ opacity: 0, scale: 0 }}
@@ -17,7 +19,7 @@ export const CartWidget = () => {
             transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
             className="cartCounter"
           >
-            {cartItems}
+            {cart.length}
           </motion.p>
         )}
       </AnimatePresence>

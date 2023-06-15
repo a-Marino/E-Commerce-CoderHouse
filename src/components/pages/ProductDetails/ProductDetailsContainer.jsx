@@ -1,7 +1,8 @@
 import { ProductDetails } from "./ProductDetails";
 import { ProductsMock } from "../../../ProductsMock";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
+import { CartContext } from "../../../context/CartContext";
 
 export const ProductDetailsContainer = () => {
   const [productSelected, setProductSelected] = useState({});
@@ -11,6 +12,8 @@ export const ProductDetailsContainer = () => {
   const [price, setPrice] = useState();
   const [specStock, setSpecStock] = useState();
   const [specSelectedId, setSpecSelectedId] = useState();
+
+  const { addToCart } = useContext(CartContext);
 
   const { id } = useParams();
 
@@ -30,7 +33,8 @@ export const ProductDetailsContainer = () => {
       spec: productSelected.spec[specSelectedId - 1],
       //  Agregue el spec seleccionado para su futuro descuento de stock y suma de precio
     };
-    console.log(data);
+    addToCart(data);
+    alert(`You added ${cantidad} items to your cart`);
   };
 
   useEffect(() => {
