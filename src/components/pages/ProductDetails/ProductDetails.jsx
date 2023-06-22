@@ -7,11 +7,15 @@ export const ProductDetails = ({
   onAdd,
   price,
   specStock,
-  specSelectedId,
   onSpecChange,
 }) => {
   return (
-    <div className="min-h-full min-w-screen mt-28 mb-20 p-10 flex md:flex-row md:justify-around md:space-y-0 space-y-10 flex-col">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="min-h-full min-w-screen mt-28 mb-20 p-10 flex md:flex-row md:justify-around md:space-y-0 space-y-10 flex-col"
+    >
       {/* LEFT */}
       <div>
         <img src={product.img} alt={product.model} className="w-72" />
@@ -67,13 +71,8 @@ export const ProductDetails = ({
           })}
         </div>
         {/* add to cart btn */}
-        <ItemCount
-          stock={specStock}
-          key={specStock}
-          specSelectedId={specSelectedId}
-          onAdd={onAdd}
-        />
+        <ItemCount stock={specStock} key={specStock} onAdd={onAdd} />
       </div>
-    </div>
+    </motion.div>
   );
 };

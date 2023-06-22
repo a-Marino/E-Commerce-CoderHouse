@@ -47,7 +47,7 @@ export const NavBar = () => {
       {showNav && (
         <div
           className="flex fixed w-full flex-col justify-center items-center space-y-4 pb-2 border-b-2 border-black md:hidden bg-white/30 top-20 pt-4 backdrop-blur-sm z-10"
-          style={{ animation: "fadeIn .5s linear" }}
+          style={{ animation: "fadeIn .25s linear" }}
         >
           {routesNav.map(({ id, to, brand }) => {
             return (

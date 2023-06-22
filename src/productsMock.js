@@ -69,7 +69,7 @@ export const ProductsMock = [
       {
         id: 1,
         size: "64GB",
-        stock: 1,
+        stock: 0,
         price: 500,
       },
       {

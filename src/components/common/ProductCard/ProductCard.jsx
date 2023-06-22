@@ -6,10 +6,10 @@ export const ProductCard = ({ product }) => {
   return (
     <Link to={`/product/${product.id}`}>
       <motion.div
-        animate={{ opacity: 1, scale: 1 }}
-        initial={{ opacity: 0, scale: 0 }}
-        exit={{ opacity: 0, scale: 0 }}
-        transition={{ duration: 0.25 }}
+        animate={{ opacity: 1 }}
+        initial={{ opacity: 0 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
         whileHover={{ scale: 1.02 }}
         layout
         key={product.id}

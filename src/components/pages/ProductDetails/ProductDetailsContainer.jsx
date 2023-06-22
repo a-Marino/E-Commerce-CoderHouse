@@ -8,7 +8,6 @@ export const ProductDetailsContainer = () => {
   const [productSelected, setProductSelected] = useState({});
 
   // States para actualizar el precio y el stock cuando se cambia la version de memoria
-  // Nose si es necesario pero tambien le paso el ID del spec seleccionado para despues utilizarlo para restar el stock
   const [price, setPrice] = useState();
   const [specStock, setSpecStock] = useState();
   const [specSelectedId, setSpecSelectedId] = useState();
@@ -34,7 +33,6 @@ export const ProductDetailsContainer = () => {
       //  Agregue el spec seleccionado para su futuro descuento de stock y suma de precio
     };
     addToCart(data);
-    alert(`You added ${cantidad} items to your cart`);
   };
 
   useEffect(() => {
@@ -60,7 +58,6 @@ export const ProductDetailsContainer = () => {
           onAdd={onAdd}
           price={price}
           specStock={specStock}
-          specSelectedId={specSelectedId}
           onSpecChange={onSpecChange}
         />
       )}
