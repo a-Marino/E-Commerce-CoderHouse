@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { NewCartAlert } from "../Alert/NewCartAlert";
+import { NewItemAlert } from "../Alert/Alert";
 import { AnimatePresence } from "framer-motion";
 
 export const ItemCount = ({ stock, onAdd }) => {
@@ -58,7 +58,7 @@ export const ItemCount = ({ stock, onAdd }) => {
             Stock: <span className="font-bold">{stock}</span>
           </span>
         )}
-        <AnimatePresence>{isAlertVisible && <NewCartAlert />}</AnimatePresence>
+        <AnimatePresence>{isAlertVisible && <NewItemAlert />}</AnimatePresence>
         <motion.button
           whileHover={{ scale: 1.03 }}
           transition={{ type: "spring", stiffness: 100, duration: 0.2 }}

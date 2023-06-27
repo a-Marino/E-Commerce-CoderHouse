@@ -1,4 +1,4 @@
-export const ProductCardCart = ({ product, removeById }) => {
+export const ProductCardCart = ({ product, removeById, handleAlert }) => {
   return (
     <div className="flex  justify-around  flex-col md:flex-row border-b border-black py-10 space-y-5 md:space-y-0">
       <div className="flex space-x-4">
@@ -17,7 +17,9 @@ export const ProductCardCart = ({ product, removeById }) => {
         </span>
         <button
           className="h-10 bg-red-600 rounded-lg text-white hover:bg-red-500"
-          onClick={() => removeById(product.id, product.spec.id)}
+          onClick={() => {
+            handleAlert(), removeById(product.id, product.spec.id);
+          }}
         >
           Remove
         </button>

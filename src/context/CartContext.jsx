@@ -49,11 +49,19 @@ export const CartContextProvider = ({ children }) => {
     localStorage.setItem("cart", JSON.stringify(newArray));
   };
 
+  const getTotalPrice = () => {
+    const total = cart.reduce((acc, element) => {
+      return acc + element.spec.price * element.quantity;
+    }, 0);
+    return total;
+  };
+
   let data = {
     cart,
     addToCart,
     clearCart,
     removeById,
+    getTotalPrice,
   };
 
   return <CartContext.Provider value={data}> {children} </CartContext.Provider>;

@@ -1,7 +1,16 @@
 import { Link } from "react-router-dom";
 import { ProductCardCart } from "./ProductCardCart/ProductCardCart";
+import { DeleteItemAlert } from "../../common/Alert/Alert";
+import { AnimatePresence } from "framer-motion";
 
-export const Cart = ({ cart, totalPrice, clearCart, removeById }) => {
+export const Cart = ({
+  cart,
+  totalPrice,
+  clearCart,
+  removeById,
+  handleAlert,
+  isAlertVisible,
+}) => {
   return (
     <div className="min-h-screen  mt-28 md:px-32 px-10">
       {cart.length > 0 ? (
@@ -11,17 +20,24 @@ export const Cart = ({ cart, totalPrice, clearCart, removeById }) => {
               Your total is {totalPrice} USD
             </h1>
             <h2 className="text-lg">Free delivery and free returns.</h2>
-            <button className="h-10 bg-blue-600 rounded-lg text-white hover:bg-blue-500 md:w-[50%] w-full">
+            <Link
+              to="/checkout"
+              className="h-10 bg-blue-600 rounded-lg text-white hover:bg-blue-500 md:w-[50%] w-full flex justify-center items-center"
+            >
               Check Out
-            </button>
+            </Link>
           </div>
           {/* items */}
+          <AnimatePresence>
+            {isAlertVisible && <DeleteItemAlert />}
+          </AnimatePresence>
           {cart.map((product, key) => {
             return (
               <ProductCardCart
                 key={key}
                 product={product}
                 removeById={removeById}
+                handleAlert={handleAlert}
               />
             );
           })}
