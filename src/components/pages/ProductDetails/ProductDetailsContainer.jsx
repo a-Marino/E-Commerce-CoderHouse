@@ -1,8 +1,9 @@
 import { ProductDetails } from "./ProductDetails";
-import { ProductsMock } from "../../../ProductsMock";
 import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { CartContext } from "../../../context/CartContext";
+import { db } from "../../../firebaseConfig";
+import { collection, getDoc, doc } from "firebase/firestore";
 
 export const ProductDetailsContainer = () => {
   const [productSelected, setProductSelected] = useState({});
@@ -36,18 +37,11 @@ export const ProductDetailsContainer = () => {
   };
 
   useEffect(() => {
-    let productFind = ProductsMock.find(
-      (product) => product.id === parseInt(id)
-    );
-    const fetchProducts = new Promise((res) => {
-      res(productFind);
+    let productsCollection = collection(db, "products");
+    let refDoc = doc(productsCollection, id);
+    getDoc(refDoc).then((res) => {
+      setProductSelected({ id: res.id, ...res.data() });
     });
-
-    fetchProducts
-      .then((res) => {
-        setProductSelected(res);
-      })
-      .catch((err) => console.log(err));
   }, [id]);
 
   return (

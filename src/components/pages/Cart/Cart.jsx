@@ -47,9 +47,12 @@ export const Cart = ({ cart, totalPrice, clearCart, removeById }) => {
             </div>
           </div>
           <div className="flex flex-col space-y-5  items-end py-10 md:mx-32">
-            <button className="md:w-[30%] w-[50%] h-10 bg-blue-600 rounded-lg text-white hover:bg-blue-500">
+            <Link
+              to="/checkout"
+              className="md:w-[30%] w-[50%] h-10 bg-blue-600 rounded-lg text-white hover:bg-blue-500 flex justify-center items-center"
+            >
               Check Out
-            </button>
+            </Link>
             <button
               className="md:w-[30%] w-[50%] h-10 bg-red-600 rounded-lg text-white hover:bg-red-500"
               onClick={clearCart}

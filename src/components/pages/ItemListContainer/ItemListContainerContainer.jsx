@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import { ProductsMock } from "../../../ProductsMock";
 import { ItemListContainer } from "./ItemListContainer";
 import { useParams } from "react-router-dom";
 import { FadeLoader } from "react-spinners";
+import { db } from "../../../firebaseConfig";
+import { collection, getDocs, query, where } from "firebase/firestore";
 
 export const ItemListContainerContainer = () => {
   const [products, setProducts] = useState([]);
@@ -10,23 +11,29 @@ export const ItemListContainerContainer = () => {
   const { categoryName } = useParams();
 
   useEffect(() => {
-    let filteredProducts = ProductsMock.filter(
-      (product) => product.category === categoryName
-    );
+    let productsCollection = collection(db, "products");
+    let customQuery;
 
-    const fetchProducts = new Promise((res) => {
-      setTimeout(() => {
-        res(categoryName ? filteredProducts : ProductsMock);
-      }, 300);
-    });
+    if (!categoryName) {
+      customQuery = productsCollection;
+    } else {
+      customQuery = query(
+        productsCollection,
+        where("category", "==", categoryName)
+      );
+    }
 
-    fetchProducts
+    getDocs(customQuery)
       .then((res) => {
-        setProducts(res);
+        let products = res.docs.map((element) => {
+          return {
+            id: element.id,
+            ...element.data(),
+          };
+        });
+        setProducts(products);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => console.log(err));
   }, [categoryName]);
 
   return (
