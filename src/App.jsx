@@ -1,6 +1,6 @@
 import { Layout } from "./components/layout/Layout";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-
+import ScrollToTop from "./scrollToTop";
 import { routesMenu } from "./routes/routesMenu";
 import { CartContextProvider } from "./context/CartContext";
 
@@ -8,6 +8,7 @@ function App() {
   return (
     <BrowserRouter>
       <CartContextProvider>
+        <ScrollToTop />
         <Routes>
           <Route element={<Layout />}>
             {routesMenu.map(({ id, path, Element }) => (

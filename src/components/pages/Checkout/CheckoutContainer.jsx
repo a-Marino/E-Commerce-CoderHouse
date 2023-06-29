@@ -1,14 +1,18 @@
 import { Checkout } from "./Checkout";
 import { CartContext } from "../../../context/CartContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { db } from "../../../firebaseConfig";
+import { collection, addDoc } from "firebase/firestore";
+import { Link } from "react-router-dom";
 
 export const CheckoutContainer = () => {
-  const { getTotalPrice } = useContext(CartContext);
+  const { cart, getTotalPrice, clearCart } = useContext(CartContext);
   const totalPrice = getTotalPrice();
   const phoneRegEx =
     /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+  const [orderId, setOrderId] = useState(null);
 
   const { handleSubmit, handleChange, errors } = useFormik({
     initialValues: {
@@ -19,8 +23,19 @@ export const CheckoutContainer = () => {
       phoneNumber: "",
     },
     onSubmit: (data) => {
-      console.log("form submited");
-      console.log(data);
+      let order = {
+        buyer: data,
+        items: cart,
+        total: totalPrice,
+      };
+
+      let ordersCollection = collection(db, "orders");
+
+      addDoc(ordersCollection, order).then((res) => {
+        setOrderId(res.id);
+      });
+
+      clearCart();
     },
     validateOnChange: false,
     validationSchema: Yup.object({
@@ -43,11 +58,28 @@ export const CheckoutContainer = () => {
   });
 
   return (
-    <Checkout
-      totalPrice={totalPrice}
-      handleSubmit={handleSubmit}
-      handleChange={handleChange}
-      errors={errors}
-    />
+    <>
+      {orderId ? (
+        <div className="h-screen mt-32 px-10 flex flex-col items-center space-y-5">
+          <h1 className="text-xl">
+            Su compra ha sido exitosa, su numero de combrobante es:
+          </h1>
+          <span className="text-2xl font-bold">{orderId}</span>
+          <Link
+            to="/"
+            className="md:w-[50%] w-full h-10 bg-blue-600 rounded-lg text-white hover:bg-blue-500 flex justify-center items-center"
+          >
+            Continue shopping
+          </Link>
+        </div>
+      ) : (
+        <Checkout
+          totalPrice={totalPrice}
+          handleSubmit={handleSubmit}
+          handleChange={handleChange}
+          errors={errors}
+        />
+      )}
+    </>
   );
 };
