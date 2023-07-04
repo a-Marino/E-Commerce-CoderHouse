@@ -2,6 +2,7 @@
 
 **E-commerce en React realizado como proyecto final en CoderHouse**
 
+####npm install 
 
 **Para que la app funcione deberan configurar las variables de entorno con estos valores** 
 
