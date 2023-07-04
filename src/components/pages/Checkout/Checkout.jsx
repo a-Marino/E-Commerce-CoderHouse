@@ -1,9 +1,10 @@
-import { Input } from "@nextui-org/react";
+import { Input, Loading } from "@nextui-org/react";
 
 export const Checkout = ({
   totalPrice,
   handleSubmit,
   handleChange,
+  loaderIsVisible,
   errors,
 }) => {
   return (
@@ -74,9 +75,16 @@ export const Checkout = ({
       <button
         type="submit"
         onClick={handleSubmit}
-        className="h-10 bg-blue-600 rounded-lg text-white hover:bg-blue-500 md:w-[44%]  items-center mt-10 mx-10"
+        className="h-10 bg-blue-600 rounded-lg text-white hover:bg-blue-500 md:w-[44%] mt-10 mx-10"
       >
-        Buy
+        <span className=""> Buy</span>
+        {loaderIsVisible && (
+          <Loading
+            color="currentColor"
+            size="xs"
+            className="float-right mr-5 mt-1"
+          />
+        )}
       </button>
     </div>
   );

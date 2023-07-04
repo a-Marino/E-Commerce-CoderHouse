@@ -13,6 +13,7 @@ export const CheckoutContainer = () => {
   const phoneRegEx =
     /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
   const [orderId, setOrderId] = useState(null);
+  const [loaderIsVisible, setLoaderIsVisible] = useState(false);
 
   const { handleSubmit, handleChange, errors } = useFormik({
     initialValues: {
@@ -28,6 +29,8 @@ export const CheckoutContainer = () => {
         items: cart,
         total: totalPrice,
       };
+
+      setLoaderIsVisible(true);
 
       let ordersCollection = collection(db, "orders");
 
@@ -78,6 +81,7 @@ export const CheckoutContainer = () => {
           handleSubmit={handleSubmit}
           handleChange={handleChange}
           errors={errors}
+          loaderIsVisible={loaderIsVisible}
         />
       )}
     </>
