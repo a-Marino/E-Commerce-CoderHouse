@@ -8,6 +8,7 @@ export const ProductDetails = ({
   price,
   specStock,
   onSpecChange,
+  isStockAvailable,
 }) => {
   return (
     <motion.div
@@ -46,32 +47,38 @@ export const ProductDetails = ({
         <div className="mt-5 pr-10 border-b border-black pb-5">
           <p>{product.description}</p>
         </div>
-        {/* memory */}
-        <div className="mt-5 pb-2 border-b border-black px-5 flex items-center justify-center space-x-4">
-          {product.spec.map((spec) => {
-            return (
-              <div className="button" key={spec.id}>
-                <input
-                  type="radio"
-                  id={spec.id}
-                  value={spec.size}
-                  name="productMemory"
-                  disabled={!spec.stock}
-                  onChange={onSpecChange}
-                  data-stock={spec.stock}
-                  data-price={spec.price}
-                  aria-selected="false"
-                  required
-                />
-                <label className="btn btn-default" htmlFor={spec.size}>
-                  {spec.size}
-                </label>
-              </div>
-            );
-          })}
-        </div>
-        {/* add to cart btn */}
-        <ItemCount stock={specStock} key={specStock} onAdd={onAdd} />
+        {isStockAvailable ? (
+          <>
+            <div className="mt-5 pb-2 border-b border-black px-5 flex items-center justify-center space-x-4">
+              {product.spec.map((spec) => {
+                return (
+                  <div className="button" key={spec.id}>
+                    <input
+                      type="radio"
+                      id={spec.id}
+                      value={spec.size}
+                      name="productMemory"
+                      disabled={!spec.stock}
+                      onChange={onSpecChange}
+                      data-stock={spec.stock}
+                      data-price={spec.price}
+                      aria-selected="false"
+                      required
+                    />
+                    <label className="btn btn-default" htmlFor={spec.size}>
+                      {spec.size}
+                    </label>
+                  </div>
+                );
+              })}
+            </div>
+            <ItemCount stock={specStock} key={specStock} onAdd={onAdd} />
+          </>
+        ) : (
+          <span className="mx-auto text-center text-white w-[50%]  mt-5 bg-red-600 rounded-full py-1">
+            Out of Stock
+          </span>
+        )}
       </div>
     </motion.div>
   );

@@ -65,7 +65,7 @@ export const CheckoutContainer = () => {
       {orderId ? (
         <div className="h-screen mt-32 px-10 flex flex-col items-center space-y-5">
           <h1 className="text-xl">
-            Su compra ha sido exitosa, su numero de combrobante es:
+            Your purchase has been successful. Your recipt number is:
           </h1>
           <span className="text-2xl font-bold">{orderId}</span>
           <Link

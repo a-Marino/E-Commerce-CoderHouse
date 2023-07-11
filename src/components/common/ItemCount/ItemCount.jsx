@@ -37,7 +37,7 @@ export const ItemCount = ({ stock, onAdd }) => {
             whileHover={isDisabledDecrement ? { scale: 1 } : { scale: 1.1 }}
             transition={{ type: "spring", stiffness: 100, duration: 0.2 }}
             onClick={decrement}
-            className="bg-blue-600 px-4 rounded-lg enabled:hover:bg-blue-500 disabled:opacity-60 disabled:cursor-not-allowed text-white"
+            className="bg-blue-600 px-4 rounded-lg enabled:hover:bg-blue-500 disabled:opacity-60 disabled:cursor-default text-white"
             disabled={isDisabledDecrement}
           >
             -
@@ -47,7 +47,7 @@ export const ItemCount = ({ stock, onAdd }) => {
             whileHover={isDisabledIncrement ? { scale: 1 } : { scale: 1.1 }}
             transition={{ type: "spring", stiffness: 100, duration: 0.2 }}
             onClick={increment}
-            className="bg-blue-600 px-4 rounded-lg enabled:hover:bg-blue-500 disabled:opacity-60 disabled:cursor-not-allowed text-white"
+            className="bg-blue-600 px-4 rounded-lg enabled:hover:bg-blue-500 disabled:opacity-60 disabled:cursor-default text-white"
             disabled={isDisabledIncrement}
           >
             +
@@ -62,7 +62,7 @@ export const ItemCount = ({ stock, onAdd }) => {
         <motion.button
           whileHover={{ scale: 1.03 }}
           transition={{ type: "spring", stiffness: 100, duration: 0.2 }}
-          className="w-full h-10 bg-blue-600 rounded-lg text-white enabled:hover:bg-blue-500 disabled:opacity-60 disabled:cursor-not-allowed"
+          className="w-full h-10 bg-blue-600 rounded-lg text-white enabled:hover:bg-blue-500 disabled:opacity-60 disabled:cursor-default"
           disabled={!stock}
           onClick={() => {
             onAdd(count), handleAlert();
