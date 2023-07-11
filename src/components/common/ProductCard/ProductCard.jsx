@@ -20,7 +20,7 @@ export const ProductCard = ({ product }) => {
           alt={product.title}
           className="h-72 w-auto p-2 flex m-auto"
         />
-        <div className="productInfo overflow-hidden py-1 px-3">
+        <div className="productInfo overflow-hidden py-1 px-3 bg-neutral-200">
           <div className="flex flex-col">
             <span className="font-bold whitespace-nowrap text-xl">
               {product.model}
