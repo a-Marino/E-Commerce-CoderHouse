@@ -12,6 +12,7 @@ export const ProductDetailsContainer = () => {
   const [price, setPrice] = useState();
   const [specStock, setSpecStock] = useState();
   const [specSelectedId, setSpecSelectedId] = useState();
+  const [isStockAvailable, setIsStockAvailable] = useState(false);
 
   const { addToCart } = useContext(CartContext);
 
@@ -37,6 +38,21 @@ export const ProductDetailsContainer = () => {
   };
 
   useEffect(() => {
+    const getTotalStock = () => {
+      const total = productSelected.spec.reduce((acc, element) => {
+        return acc + element.stock;
+      }, 0);
+      return total;
+    };
+
+    if (productSelected.spec) {
+      if (getTotalStock() > 0) {
+        setIsStockAvailable(true);
+      }
+    }
+  }, [productSelected]);
+
+  useEffect(() => {
     let productsCollection = collection(db, "products");
     let refDoc = doc(productsCollection, id);
     getDoc(refDoc).then((res) => {
@@ -53,6 +69,7 @@ export const ProductDetailsContainer = () => {
           price={price}
           specStock={specStock}
           onSpecChange={onSpecChange}
+          isStockAvailable={isStockAvailable}
         />
       )}
     </div>

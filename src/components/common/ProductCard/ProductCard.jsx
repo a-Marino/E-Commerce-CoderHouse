@@ -1,8 +1,21 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./ProductCard.css";
 import { motion } from "framer-motion";
 
 export const ProductCard = ({ product }) => {
+  const [isStockAvailable, setIsStockAvailable] = useState(false);
+
+  useEffect(() => {
+    const totalStock = product.spec.reduce((acc, element) => {
+      return acc + element.stock;
+    }, 0);
+
+    if (totalStock > 0) {
+      setIsStockAvailable(true);
+    }
+  }, [product]);
+
   return (
     <Link to={`/product/${product.id}`}>
       <motion.div
@@ -13,8 +26,13 @@ export const ProductCard = ({ product }) => {
         whileHover={{ scale: 1.02 }}
         layout
         key={product.id}
-        className="card cursor-pointer "
+        className="card cursor-pointer relative"
       >
+        {!isStockAvailable && (
+          <span className="absolute bg-red-600/80 backdrop-blur-sm rounded-full text-sm px-2 py-1 m-2 z-[1] text-white font-semibold">
+            Out of Stock
+          </span>
+        )}
         <img
           src={product.img}
           alt={product.title}
