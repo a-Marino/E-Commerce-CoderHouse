@@ -32,7 +32,6 @@ export const ProductDetailsContainer = () => {
       ...productSelected,
       quantity: cantidad,
       spec: productSelected.spec[specSelectedId - 1],
-      //  Agregue el spec seleccionado para su futuro descuento de stock y suma de precio
     };
     addToCart(data);
   };
@@ -48,6 +47,21 @@ export const ProductDetailsContainer = () => {
     if (productSelected.spec) {
       if (getTotalStock() > 0) {
         setIsStockAvailable(true);
+        setPrice(productSelected.spec[0].price);
+
+        setSpecSelectedId(() => {
+          if (productSelected.spec[0].stock === 0) {
+            return 2;
+          }
+          return 1;
+        });
+
+        setSpecStock(() => {
+          if (productSelected.spec[0].stock === 0) {
+            return productSelected.spec[1].stock;
+          }
+          return productSelected.spec[0].stock;
+        });
       }
     }
   }, [productSelected]);
@@ -70,6 +84,7 @@ export const ProductDetailsContainer = () => {
           specStock={specStock}
           onSpecChange={onSpecChange}
           isStockAvailable={isStockAvailable}
+          specSelectedId={specSelectedId}
         />
       )}
     </div>

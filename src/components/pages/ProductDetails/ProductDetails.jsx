@@ -9,6 +9,7 @@ export const ProductDetails = ({
   specStock,
   onSpecChange,
   isStockAvailable,
+  specSelectedId,
 }) => {
   return (
     <motion.div
@@ -62,7 +63,7 @@ export const ProductDetails = ({
                       onChange={onSpecChange}
                       data-stock={spec.stock}
                       data-price={spec.price}
-                      aria-selected="false"
+                      defaultChecked={specSelectedId === spec.id}
                       required
                     />
                     <label className="btn btn-default" htmlFor={spec.size}>

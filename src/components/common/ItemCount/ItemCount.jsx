@@ -60,7 +60,7 @@ export const ItemCount = ({ stock, onAdd }) => {
         )}
         <AnimatePresence>{isAlertVisible && <NewItemAlert />}</AnimatePresence>
         <motion.button
-          whileHover={{ scale: 1.03 }}
+          whileHover={!stock ? { scale: 1 } : { scale: 1.03 }}
           transition={{ type: "spring", stiffness: 100, duration: 0.2 }}
           className="w-full h-10 bg-blue-600 rounded-lg text-white enabled:hover:bg-blue-500 disabled:opacity-60 disabled:cursor-default"
           disabled={!stock}
