@@ -9,6 +9,7 @@
   line-height: 1.8em;
   cursor: pointer;
   border: 2px solid black;
+  border-radius: 10px;
   font-weight: 600;
 }
 
