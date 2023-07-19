@@ -2,23 +2,15 @@ import { Link } from "react-router-dom";
 import { ProductCardCart } from "./ProductCardCart/ProductCardCart";
 import { DeleteItemAlert } from "../../common/Alert/Alert";
 import { AnimatePresence } from "framer-motion";
+import { EmptyCart } from "../../common/EmptyCart/EmptyCart";
 
-export const Cart = ({
-  cart,
-  totalPrice,
-  clearCart,
-  removeById,
-  handleAlert,
-  isAlertVisible,
-}) => {
+export const Cart = ({ cart, totalPrice, clearCart, removeById, handleAlert, isAlertVisible }) => {
   return (
     <div className="min-h-screen  mt-28 md:px-32 px-10">
       {cart.length > 0 ? (
         <>
           <div className="flex flex-col justify-center items-center space-y-2 border-b border-black pb-10">
-            <h1 className=" text-5xl font-semibold text-center">
-              Your total is {totalPrice} USD
-            </h1>
+            <h1 className=" text-5xl font-semibold text-center">Your total is {totalPrice} USD</h1>
             <h2 className="text-lg">Free delivery and free returns.</h2>
             <Link
               to="/checkout"
@@ -28,9 +20,7 @@ export const Cart = ({
             </Link>
           </div>
           {/* items */}
-          <AnimatePresence>
-            {isAlertVisible && <DeleteItemAlert />}
-          </AnimatePresence>
+          <AnimatePresence>{isAlertVisible && <DeleteItemAlert />}</AnimatePresence>
           {cart.map((product, key) => {
             return (
               <ProductCardCart
@@ -78,17 +68,7 @@ export const Cart = ({
           </div>
         </>
       ) : (
-        <div className="flex flex-col justify-center items-center space-y-5 mt-10">
-          <h1 className=" text-5xl font-semibold text-center">
-            Your cart its empty
-          </h1>
-          <Link
-            to="/"
-            className="md:w-[50%] w-full h-10 bg-blue-600 rounded-lg text-white hover:bg-blue-500 flex justify-center items-center"
-          >
-            Continue shopping
-          </Link>
-        </div>
+        <EmptyCart />
       )}
     </div>
   );

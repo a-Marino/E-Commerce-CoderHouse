@@ -15,7 +15,7 @@ export const CheckoutContainer = () => {
   const [orderId, setOrderId] = useState(null);
   const [loaderIsVisible, setLoaderIsVisible] = useState(false);
 
-  const { handleSubmit, handleChange, errors } = useFormik({
+  const { handleSubmit, handleChange, errors, values } = useFormik({
     initialValues: {
       firstName: "",
       lastName: "",
@@ -42,17 +42,9 @@ export const CheckoutContainer = () => {
     },
     validateOnChange: false,
     validationSchema: Yup.object({
-      firstName: Yup.string()
-        .required("Please enter a First Name")
-        .min(3)
-        .max(15),
-      lastName: Yup.string()
-        .required("Please enter a Last Name")
-        .min(3)
-        .max(20),
-      email: Yup.string()
-        .email()
-        .required("Please enter a valid email address"),
+      firstName: Yup.string().required("Please enter a First Name").min(3).max(15),
+      lastName: Yup.string().required("Please enter a Last Name").min(3).max(20),
+      email: Yup.string().email().required("Please enter a valid email address"),
       address: Yup.string().required("Please enter an address").min(5),
       phoneNumber: Yup.string()
         .required("Please enter a valid phone number")
@@ -64,9 +56,7 @@ export const CheckoutContainer = () => {
     <>
       {orderId ? (
         <div className="h-screen mt-32 px-10 flex flex-col items-center space-y-5">
-          <h1 className="text-xl">
-            Your purchase has been successful. Your recipt number is:
-          </h1>
+          <h1 className="text-xl">Your purchase has been successful. Your recipt number is:</h1>
           <span className="text-2xl font-bold">{orderId}</span>
           <Link
             to="/"
@@ -82,6 +72,8 @@ export const CheckoutContainer = () => {
           handleChange={handleChange}
           errors={errors}
           loaderIsVisible={loaderIsVisible}
+          values={values}
+          cart={cart}
         />
       )}
     </>
