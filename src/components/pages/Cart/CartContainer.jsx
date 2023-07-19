@@ -3,8 +3,7 @@ import { Cart } from "./Cart";
 import { CartContext } from "../../../context/CartContext";
 
 export const CartContainer = () => {
-  const { cart, clearCart, removeById, getTotalPrice } =
-    useContext(CartContext);
+  const { cart, clearCart, removeById, getTotalPrice } = useContext(CartContext);
 
   const [isAlertVisible, setIsAlertVisible] = useState(false);
 
