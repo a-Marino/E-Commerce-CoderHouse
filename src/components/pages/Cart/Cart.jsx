@@ -6,7 +6,7 @@ import { EmptyCart } from "../../common/EmptyCart/EmptyCart";
 
 export const Cart = ({ cart, totalPrice, clearCart, removeById, handleAlert, isAlertVisible }) => {
   return (
-    <div className="min-h-screen  mt-28 md:px-32 px-10">
+    <div className="min-h-screen mt-10 md:px-32 px-10">
       {cart.length > 0 ? (
         <>
           <div className="flex flex-col justify-center items-center space-y-2 border-b border-black pb-10">

@@ -2,7 +2,7 @@ import { ProductCard } from "../../common/ProductCard/ProductCard";
 
 export const ItemListContainer = ({ products, categoryName }) => {
   return (
-    <div className="min-h-screen mt-28">
+    <div className="min-h-screen mt-5">
       <h1 className="text-center text-5xl font-bold mb-10">
         {categoryName == undefined
           ? "All Products"

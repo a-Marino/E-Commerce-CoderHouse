@@ -13,12 +13,14 @@ export const Checkout = ({
   return (
     <>
       {cart.length > 0 ? (
-        <div className="min-h-screen mt-28 flex flex-col">
-          <div className="flex flex-col md:flex-row md:justify-between w-full border-b pb-2 sticky top-20 z-[8] px-10 py-2 bg-white/30 backdrop-blur-sm">
+        <div className="min-h-screen  flex flex-col">
+          <div className="flex flex-col md:flex-row md:justify-between border-b w-full pb-2 fixed z-[8] px-10 bg-white/90 backdrop-blur-md">
             <h1 className="text-2xl font-medium">Checkout</h1>
             <span className="text-blue-500 md:self-end">Order summary: {totalPrice} USD</span>
           </div>
-          <span className="py-10 font-semibold text-4xl px-10">Now fill out your information.</span>
+          <span className="py-10 font-semibold text-4xl px-10 mt-5">
+            Now fill out your information.
+          </span>
           {/* FORM */}
           <form className="flex flex-col md:w-[50%] space-y-10 z-0 px-10">
             <Input
