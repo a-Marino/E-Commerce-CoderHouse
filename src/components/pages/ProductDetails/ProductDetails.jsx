@@ -16,7 +16,7 @@ export const ProductDetails = ({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="min-h-full min-w-screen mt-28 mb-20 p-10 flex md:flex-row md:justify-around md:space-y-0 space-y-10 flex-col"
+      className="min-h-full min-w-screen  mb-20 p-10 flex md:flex-row md:justify-around md:space-y-0 space-y-10 flex-col"
     >
       {/* LEFT */}
       <div>

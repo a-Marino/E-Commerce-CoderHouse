@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export const EmptyCart = () => {
   return (
-    <div className="flex flex-col  items-center space-y-5 mt-28 min-h-screen">
+    <div className="flex flex-col  items-center space-y-5 mt-10 min-h-screen">
       <h1 className=" text-5xl font-semibold text-center">Your cart its empty</h1>
       <Link
         to="/"

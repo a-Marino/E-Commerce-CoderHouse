@@ -1,63 +1,57 @@
-import "./NavBar.css";
 import { CartWidget } from "../../common/CartWidget/CartWidget";
-import { useState } from "react";
+import {
+  Navbar,
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+  NavbarMenuToggle,
+  NavbarMenu,
+  NavbarMenuItem,
+} from "@nextui-org/react";
 import { NavLink } from "react-router-dom";
+import { useState } from "react";
 import { routesNav } from "../../../routes/routesNav";
 
 export const NavBar = () => {
-  const [showNav, setShowNav] = useState(false);
-
-  const handleNavClick = () => {
-    setShowNav(!showNav);
-  };
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <>
-      <nav className="flex items-center justify-between pl-8 pr-16 fixed w-full border h-20 top-0 bg-white/30 backdrop-blur-sm z-10">
-        {/* Logo */}
-        <NavLink to="/">
-          <img
-            src="https://res.cloudinary.com/dv8nczwtj/image/upload/v1684896617/Logo_jivlnb.png"
-            alt="Logo"
-            className="logo"
-          />
-        </NavLink>
-        {/* Nav WEB*/}
-        <div className="md:flex flex-row space-x-5 hidden">
-          {routesNav.map(({ id, to, brand }) => {
-            return (
-              <NavLink key={id} to={to} className="brand">
-                {brand}
-              </NavLink>
-            );
-          })}
-        </div>
-        {/* BTN Nav Mobil */}
-        <button className="md:hidden" onClick={handleNavClick}>
-          <img
-            src="https://res.cloudinary.com/dv8nczwtj/image/upload/v1684859901/menu_wh8ccz.png"
-            alt="Menu"
-            className="w-6"
-          />
-        </button>
-        {/* Cart */}
-        <CartWidget className="flex flex-grow basis-0 justify-end" />
-      </nav>
-      {/* Nav Mobil */}
-      {showNav && (
-        <div
-          className="flex fixed w-full flex-col justify-center items-center space-y-4 pb-2 border-b-2 border-black md:hidden bg-white/30 top-20 pt-4 backdrop-blur-sm z-10"
-          style={{ animation: "fadeIn .25s linear" }}
-        >
-          {routesNav.map(({ id, to, brand }) => {
-            return (
-              <NavLink key={id} to={to} className="brand">
-                {brand}
-              </NavLink>
-            );
-          })}
-        </div>
-      )}
-    </>
+    <Navbar onMenuOpenChange={setIsMenuOpen} isMenuOpen={isMenuOpen}>
+      <NavbarContent>
+        <NavbarMenuToggle
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          className="sm:hidden"
+        />
+        <NavbarBrand>
+          <NavLink to="/">
+            <img
+              src="https://res.cloudinary.com/dv8nczwtj/image/upload/v1684896617/Logo_jivlnb.png"
+              alt="Logo"
+              className="w-16 hover"
+            />
+          </NavLink>
+        </NavbarBrand>
+      </NavbarContent>
+
+      <NavbarContent className="hidden sm:flex gap-4" justify="center">
+        {routesNav.map(({ id, to, brand }) => (
+          <NavbarItem key={id} className="hover:scale-110 transition-all duration-100">
+            <NavLink to={to}>{brand}</NavLink>
+          </NavbarItem>
+        ))}
+      </NavbarContent>
+      <NavbarContent justify="end">
+        <NavbarItem>
+          <CartWidget />
+        </NavbarItem>
+      </NavbarContent>
+      <NavbarMenu>
+        {routesNav.map(({ id, to, brand }) => (
+          <NavbarMenuItem key={id}>
+            <NavLink to={to}>{brand}</NavLink>
+          </NavbarMenuItem>
+        ))}
+      </NavbarMenu>
+    </Navbar>
   );
 };
